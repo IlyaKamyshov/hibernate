@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - include:
+      file: scripts/table-customers.sql
+      relativeToChangeLogFile: true
+  - include:
+      file: scripts/table-orders.sql
+      relativeToChangeLogFile: true
+  - include:
+      file: scripts/table-persons.sql
+      relativeToChangeLogFile: true
+  - include:
+      file: scripts/data-customers.sql
+      relativeToChangeLogFile: true
+  - include:
+      file: scripts/data-orders.sql
+      relativeToChangeLogFile: true
+  - include:
+      file: scripts/data-persons.sql
+      relativeToChangeLogFile: true
