@@ -1,4 +1,4 @@
-INSERT INTO CUSTOMERS (NAME, surname, age, phone_number)
+INSERT INTO CUSTOMERS (name, surname, age, phone_number)
 VALUES ('Ivan', 'Ivanov', 50, '+79160000000'),
        ('Petr', 'Petrov', 40, '+79161111111'),
        ('Sidor', 'Sidorov', 20, NULL),

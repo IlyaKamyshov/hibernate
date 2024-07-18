@@ -1,4 +1,4 @@
-INSERT INTO netology.PERSONS (NAME, surname, age, phone_number, city_of_living)
+INSERT INTO netology.PERSONS (name, surname, age, phone_number, city_of_living)
 VALUES ('Ivan', 'Ivanov', 50, '+79160000000', 'Moscow'),
        ('Petr', 'Petrov', 40, '+79161111111', 'St.Petersburg'),
        ('Sidor', 'Sidorov', 20, NULL, 'Moscow'),
