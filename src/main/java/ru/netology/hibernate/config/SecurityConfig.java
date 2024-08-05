@@ -3,6 +3,7 @@ package ru.netology.hibernate.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
+@EnableMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfig {
 
     @Bean
@@ -26,7 +28,22 @@ public class SecurityConfig {
                 .password("{noop}passw0rd")
                 .authorities("age", "fio")
                 .build();
-        return new InMemoryUserDetailsManager(user, admin);
+        UserDetails userRead = User.builder()
+                .username("userREAD")
+                .password("{noop}password")
+                .roles("READ")
+                .build();
+        UserDetails userWrite = User.builder()
+                .username("userWRITE")
+                .password("{noop}password")
+                .roles("WRITE")
+                .build();
+        UserDetails userDelete = User.builder()
+                .username("userDELETE")
+                .password("{noop}password")
+                .roles("DELETE")
+                .build();
+        return new InMemoryUserDetailsManager(user, admin, userRead, userWrite, userDelete);
     }
 
     @Bean
